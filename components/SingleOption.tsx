@@ -1,6 +1,6 @@
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Text, View } from "./Themed";
-import { Button, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { OptionActionType } from "../app/reducers/scoreReducerTypes";
 import { useOptions } from "../app/context/optionsContext";
 
@@ -19,7 +19,6 @@ const SingleOption: React.FC<Props> = ({ option, icon, handIndex }) => {
   const selectedHand = state.playerHand;
 
   const selectOption = (index: number) => {
-    // console.log("index is " + index);
     dispatch({ type: OptionActionType.UPDATE_PLAYER_CHOICE, payload: index });
     setHandPressed(true);
   };
@@ -40,7 +39,7 @@ const SingleOption: React.FC<Props> = ({ option, icon, handIndex }) => {
         selectedHand === handIndex ? "bg-blue-400" : "bg-teal-500"
       }`}
     >
-      <Text className=" font-bold text-gray-800 mb-2">{option}</Text>
+      <Text className="font-bold text-gray-800 mb-2">{option}</Text>
       <View
         className={`${
           selectedHand === handIndex ? "bg-blue-400" : "bg-teal-500"

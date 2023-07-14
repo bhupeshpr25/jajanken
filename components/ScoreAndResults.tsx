@@ -3,7 +3,6 @@ import { useOptions } from "../app/context/optionsContext";
 import { Text, View } from "./Themed";
 import { OptionActionType } from "../app/reducers/scoreReducerTypes";
 import { checkWinner } from "../app/utils/checkWinner";
-import { Motion } from "@legendapp/motion";
 import { Animated, StyleSheet } from "react-native";
 
 export default function ScoreAndResults() {
@@ -79,7 +78,7 @@ export default function ScoreAndResults() {
 
   return (
     <View className="flex justify-between ml-8">
-      <View className="rounded-2xl justify-between bg-teal-500 w-10/12 h-56 m-3 p-1 shadow-xl">
+      <View className="rounded-2xl justify-between bg-teal-500 w-10/12 h-48 m-3 p-1 shadow-xl">
         <View className="rounded-2xl flex flex-row items-center justify-between bg-teal-600 max-w-fit h-16 m-1 p-1 shadow-xl">
           <Text className="text-lg ml-2 font-bold text-gray-200">Computer</Text>
           <View className="rounded-2xl flex items-center justify-center bg-teal-500 w-12 h-12 m-1 p-1 shadow-xl">
@@ -89,7 +88,7 @@ export default function ScoreAndResults() {
           </View>
         </View>
         <View className="flex items-center justify-center bg-teal-500">
-          <View className="rounded-2xl flex items-center justify-center bg-teal-500 w-32 h-32 m-1 p-1 shadow-xl">
+          <View className="rounded-2xl flex items-center justify-center bg-teal-500 w-24 h-24 m-1 p-1 shadow-xl">
             <Text className="text-lg font-bold text-gray-900">
               {runTimer && (
                 <Animated.View
@@ -104,7 +103,7 @@ export default function ScoreAndResults() {
               )}
               {!runTimer && winner && (
                 <View className="flex flex-col bg-teal-500">
-                  <Text className="text-lg mb-2">{computerHandName}</Text>
+                  <Text className="text-lg">{computerHandName}</Text>
                   <View className="bg-teal-500">{computerHandIcon}</View>
                 </View>
               )}
@@ -114,13 +113,23 @@ export default function ScoreAndResults() {
       </View>
 
       {/* animation */}
-      <View>{runTimer && <Text>{timer}</Text>}</View>
+      <View>
+        {runTimer && (
+          <Text className="my-2 text-lg uppercase font-bold text-blue-400 mr-8 self-center">
+            {timer}
+          </Text>
+        )}
+      </View>
       {/* styling */}
-      {!runTimer && winner && <Text>{message}</Text>}
+      {!runTimer && winner && (
+        <Text className="my-2 text-lg uppercase font-bold text-blue-400 mr-8 self-center">
+          {message}
+        </Text>
+      )}
 
-      <View className="rounded-2xl bg-teal-500 w-10/12 h-56 m-3 p-1 shadow-xl">
+      <View className="rounded-2xl bg-teal-500 w-10/12 h-48 m-3 p-1 shadow-xl">
         <View className="flex items-center justify-center bg-teal-500">
-          <View className="rounded-2xl flex items-center justify-center bg-teal-500 w-32 h-32 m-1 p-1 shadow-xl">
+          <View className="rounded-2xl flex items-center justify-center bg-teal-500 w-24 h-24 m-1 p-1 shadow-xl">
             <View className="text-lg font-bold text-gray-900 bg-teal-500">
               {runTimer && (
                 <Animated.View

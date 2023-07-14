@@ -2,7 +2,7 @@
 
 rock paper scissors game
 
-### Stack
+## Stack
 
 - React Native with expo
 - NativeWind

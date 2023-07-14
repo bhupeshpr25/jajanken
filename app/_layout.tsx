@@ -33,7 +33,6 @@ export default function RootLayout() {
 
   return (
     <>
-      {/* Keep the splash screen open until the assets have loaded. In the future, we should just support async font loading with a native version of font-display. */}
       {!loaded && <SplashScreen />}
       {loaded && <RootLayoutNav />}
     </>
@@ -49,7 +48,7 @@ function RootLayoutNav() {
         <OptionsProvider>
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+            <Stack.Screen name="about" options={{ presentation: "modal" }} />
           </Stack>
         </OptionsProvider>
       </ThemeProvider>
